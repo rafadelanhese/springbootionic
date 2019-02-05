@@ -7,15 +7,18 @@ import org.springframework.stereotype.Service;
 
 import com.delanhese.cursospring.domain.Categoria;
 import com.delanhese.cursospring.repositories.CategoriaRepository;
+import com.delanhese.cursospring.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class CategoriaService {
 
 	@Autowired
-	private CategoriaRepository repo;
+	private CategoriaRepository categoriaRepository;
 	
 	public Categoria buscar(Integer id) {
-		Optional<Categoria> categoria = repo.findById(id);
-		return categoria.orElse(null);
+		Optional<Categoria> categoria = categoriaRepository.findById(id);
+		System.out.print("SERVICE");
+		return categoria.orElseThrow(() -> new ObjectNotFoundException(
+				"Objeto não encontrado! Id: " + id + ", Tipo: " + Categoria.class.getName()));
 	}
 }

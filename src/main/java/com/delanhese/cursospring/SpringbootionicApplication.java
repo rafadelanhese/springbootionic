@@ -15,11 +15,16 @@ import com.delanhese.cursospring.repositories.ProdutoRepository;
 @SpringBootApplication
 public class SpringbootionicApplication implements CommandLineRunner{
 
-	@Autowired
-	private CategoriaRepository categoriaRepository; 
-	@Autowired
-	private ProdutoRepository produtoRepository;
+	private CategoriaRepository categoriaRepository; 	
+	private ProdutoRepository produtoRepository;	
 	
+	@Autowired
+	public SpringbootionicApplication(CategoriaRepository categoriaRepository, ProdutoRepository produtoRepository) {
+		super();
+		this.categoriaRepository = categoriaRepository;
+		this.produtoRepository = produtoRepository;
+	}
+
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootionicApplication.class, args);
 	}
