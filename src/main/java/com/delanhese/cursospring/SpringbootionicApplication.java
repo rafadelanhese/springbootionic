@@ -1,5 +1,6 @@
 package com.delanhese.cursospring;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,13 +13,20 @@ import com.delanhese.cursospring.domain.Cidade;
 import com.delanhese.cursospring.domain.Cliente;
 import com.delanhese.cursospring.domain.Endereco;
 import com.delanhese.cursospring.domain.Estado;
+import com.delanhese.cursospring.domain.Pagamento;
+import com.delanhese.cursospring.domain.PagamentoComBoleto;
+import com.delanhese.cursospring.domain.PagamentoComCartao;
+import com.delanhese.cursospring.domain.Pedido;
 import com.delanhese.cursospring.domain.Produto;
+import com.delanhese.cursospring.domain.enums.EstadoPagamento;
 import com.delanhese.cursospring.domain.enums.TipoCliente;
 import com.delanhese.cursospring.repositories.CategoriaRepository;
 import com.delanhese.cursospring.repositories.CidadeRepository;
 import com.delanhese.cursospring.repositories.ClienteRepository;
 import com.delanhese.cursospring.repositories.EnderecoRepository;
 import com.delanhese.cursospring.repositories.EstadoRepository;
+import com.delanhese.cursospring.repositories.PagamentoRepository;
+import com.delanhese.cursospring.repositories.PedidoRepository;
 import com.delanhese.cursospring.repositories.ProdutoRepository;
 
 @SpringBootApplication
@@ -30,12 +38,15 @@ public class SpringbootionicApplication implements CommandLineRunner{
 	private CidadeRepository cidadeRepository;
 	private ClienteRepository clienteRepository;
 	private EnderecoRepository enderecoRepository;
+	private PedidoRepository pedidoRepository;
+	private PagamentoRepository pagamentoRepository;
 	
 	
 	@Autowired	
 	public SpringbootionicApplication(CategoriaRepository categoriaRepository, ProdutoRepository produtoRepository,
 			EstadoRepository estadoRepository, CidadeRepository cidadeRepository, ClienteRepository clienteRepository,
-			EnderecoRepository enderecoRepository) {
+			EnderecoRepository enderecoRepository, PedidoRepository pedidoRepository,
+			PagamentoRepository pagamentoRepository) {
 		super();
 		this.categoriaRepository = categoriaRepository;
 		this.produtoRepository = produtoRepository;
@@ -43,6 +54,8 @@ public class SpringbootionicApplication implements CommandLineRunner{
 		this.cidadeRepository = cidadeRepository;
 		this.clienteRepository = clienteRepository;
 		this.enderecoRepository = enderecoRepository;
+		this.pedidoRepository = pedidoRepository;
+		this.pagamentoRepository = pagamentoRepository;
 	}
 
 
@@ -94,6 +107,21 @@ public class SpringbootionicApplication implements CommandLineRunner{
 		clienteRepository.saveAll(Arrays.asList(cli1));
 		enderecoRepository.saveAll(Arrays.asList(e1, e2));
 		
+		SimpleDateFormat sdf = 	new SimpleDateFormat("dd/MM/yyyy HH:mm");
+		
+		Pedido ped1 = new Pedido(null, sdf.parse("30/09/2017 10:32"), cli1, e1);
+		Pedido ped2 = new Pedido(null, sdf.parse("10/10/2017 19:35"), cli1, e2);
+		
+		Pagamento pgto1 = new PagamentoComCartao(null, EstadoPagamento.QUITADO, ped1, 6);
+		ped1.setPagamento(pgto1);
+		
+		Pagamento pgto2 = new PagamentoComBoleto(null, EstadoPagamento.PENDENTE, ped2, sdf.parse("20/10/2017 00:00"), null);
+		ped2.setPagamento(pgto2);
+		
+		cli1.getPedidos().addAll(Arrays.asList(ped1, ped2));
+		
+		pedidoRepository.saveAll(Arrays.asList(ped1, ped2));
+		pagamentoRepository.saveAll(Arrays.asList(pgto1, pgto2));
 	}
 
 }
