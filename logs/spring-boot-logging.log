@@ -3366,3 +3366,63 @@ Caused by: java.lang.StackOverflowError
 2019-02-09 17:32:12.458 DEBUG 13384 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
 2019-02-09 17:32:12.459 DEBUG 13384 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.delanhese.cursospring.domain.Pedido@21]
 2019-02-09 17:32:12.488 DEBUG 13384 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-02-09 17:40:18.100 DEBUG 14368 --- [restartedMain] o.s.web.context.ContextLoader            : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2019-02-09 17:40:18.105  INFO 14368 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3872 ms
+2019-02-09 17:40:22.451 DEBUG 14368 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
+2019-02-09 17:40:22.814 DEBUG 14368 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2019-02-09 17:40:22.859  WARN 14368 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-02-09 17:40:22.928 DEBUG 14368 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 5 mappings in 'requestMappingHandlerMapping'
+2019-02-09 17:40:22.965 DEBUG 14368 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2019-02-09 17:40:23.004 DEBUG 14368 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2019-02-09 17:40:42.328  INFO 14368 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-02-09 17:40:42.329 DEBUG 14368 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2019-02-09 17:40:42.345 DEBUG 14368 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2019-02-09 17:40:42.346  INFO 14368 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 17 ms
+2019-02-09 17:40:42.361 DEBUG 14368 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/categoria/1", parameters={}
+2019-02-09 17:40:42.373 DEBUG 14368 --- [http-nio-8080-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler ["classpath:/META-INF/resources/", "classpath:/resources/", "classpath:/static/", "classpath:/public/", "/"]
+2019-02-09 17:40:42.382 DEBUG 14368 --- [http-nio-8080-exec-2] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2019-02-09 17:40:42.383 DEBUG 14368 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2019-02-09 17:40:42.396 DEBUG 14368 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2019-02-09 17:40:42.411 DEBUG 14368 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-02-09 17:40:42.472 DEBUG 14368 --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-02-09 17:40:42.474 DEBUG 14368 --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Sat Feb 09 17:40:42 BRST 2019, status=404, error=Not Found, message=No message available, path=/categoria/1}]
+2019-02-09 17:40:42.577 DEBUG 14368 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2019-02-09 17:40:54.004 DEBUG 14368 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/categorias/1", parameters={}
+2019-02-09 17:40:54.006 DEBUG 14368 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public org.springframework.http.ResponseEntity<com.delanhese.cursospring.domain.Categoria> com.delanhese.cursospring.resources.CategoriaResource.find(java.lang.Integer)
+2019-02-09 17:40:54.115 DEBUG 14368 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-02-09 17:40:54.116 DEBUG 14368 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.delanhese.cursospring.domain.Categoria@20]
+2019-02-09 17:40:54.184 DEBUG 14368 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-02-09 17:40:58.360 DEBUG 14368 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/categorias/2", parameters={}
+2019-02-09 17:40:58.362 DEBUG 14368 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public org.springframework.http.ResponseEntity<com.delanhese.cursospring.domain.Categoria> com.delanhese.cursospring.resources.CategoriaResource.find(java.lang.Integer)
+2019-02-09 17:40:58.366 DEBUG 14368 --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-02-09 17:40:58.367 DEBUG 14368 --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.delanhese.cursospring.domain.Categoria@21]
+2019-02-09 17:40:58.370 DEBUG 14368 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-02-09 17:41:01.343 DEBUG 14368 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/categorias/3", parameters={}
+2019-02-09 17:41:01.345 DEBUG 14368 --- [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public org.springframework.http.ResponseEntity<com.delanhese.cursospring.domain.Categoria> com.delanhese.cursospring.resources.CategoriaResource.find(java.lang.Integer)
+2019-02-09 17:41:01.351 DEBUG 14368 --- [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler public org.springframework.http.ResponseEntity<com.delanhese.cursospring.resources.exception.StandardError> com.delanhese.cursospring.resources.exception.ResourceExceptionHandler.objectNotFound(com.delanhese.cursospring.services.exceptions.ObjectNotFoundException,javax.servlet.http.HttpServletRequest)
+2019-02-09 17:41:01.360 DEBUG 14368 --- [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-02-09 17:41:01.360 DEBUG 14368 --- [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.delanhese.cursospring.resources.exception.StandardError@48ae057]
+2019-02-09 17:41:01.363  WARN 14368 --- [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.delanhese.cursospring.services.exceptions.ObjectNotFoundException: Objeto não encontrado! Id: 3, Tipo: com.delanhese.cursospring.domain.Categoria]
+2019-02-09 17:41:01.363 DEBUG 14368 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2019-02-09 17:41:21.887 DEBUG 14368 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/clientes/1", parameters={}
+2019-02-09 17:41:21.888 DEBUG 14368 --- [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public org.springframework.http.ResponseEntity<com.delanhese.cursospring.domain.Cliente> com.delanhese.cursospring.resources.ClienteResource.find(java.lang.Integer)
+2019-02-09 17:41:21.907 DEBUG 14368 --- [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-02-09 17:41:21.907 DEBUG 14368 --- [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.delanhese.cursospring.domain.Cliente@20]
+2019-02-09 17:41:21.934 DEBUG 14368 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-02-09 17:41:32.161 DEBUG 14368 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/pedidos/1", parameters={}
+2019-02-09 17:41:32.164 DEBUG 14368 --- [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public org.springframework.http.ResponseEntity<com.delanhese.cursospring.domain.Pedido> com.delanhese.cursospring.resources.PedidoResource.find(java.lang.Integer)
+2019-02-09 17:41:32.187 DEBUG 14368 --- [http-nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-02-09 17:41:32.188 DEBUG 14368 --- [http-nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.delanhese.cursospring.domain.Pedido@20]
+2019-02-09 17:41:32.286 DEBUG 14368 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-02-09 17:41:42.983 DEBUG 14368 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/pedidos/2", parameters={}
+2019-02-09 17:41:42.985 DEBUG 14368 --- [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public org.springframework.http.ResponseEntity<com.delanhese.cursospring.domain.Pedido> com.delanhese.cursospring.resources.PedidoResource.find(java.lang.Integer)
+2019-02-09 17:41:42.995 DEBUG 14368 --- [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-02-09 17:41:42.996 DEBUG 14368 --- [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.delanhese.cursospring.domain.Pedido@21]
+2019-02-09 17:41:43.010 DEBUG 14368 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-02-09 17:41:48.367 DEBUG 14368 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/pedidos/3", parameters={}
+2019-02-09 17:41:48.369 DEBUG 14368 --- [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public org.springframework.http.ResponseEntity<com.delanhese.cursospring.domain.Pedido> com.delanhese.cursospring.resources.PedidoResource.find(java.lang.Integer)
+2019-02-09 17:41:48.374 DEBUG 14368 --- [http-nio-8080-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler public org.springframework.http.ResponseEntity<com.delanhese.cursospring.resources.exception.StandardError> com.delanhese.cursospring.resources.exception.ResourceExceptionHandler.objectNotFound(com.delanhese.cursospring.services.exceptions.ObjectNotFoundException,javax.servlet.http.HttpServletRequest)
+2019-02-09 17:41:48.375 DEBUG 14368 --- [http-nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-02-09 17:41:48.376 DEBUG 14368 --- [http-nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.delanhese.cursospring.resources.exception.StandardError@5280b68d]
+2019-02-09 17:41:48.379  WARN 14368 --- [http-nio-8080-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.delanhese.cursospring.services.exceptions.ObjectNotFoundException: Objeto não encontrado! Id: 3, Tipo: com.delanhese.cursospring.domain.Pedido]
+2019-02-09 17:41:48.382 DEBUG 14368 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
