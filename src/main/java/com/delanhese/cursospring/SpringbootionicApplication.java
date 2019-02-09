@@ -13,6 +13,7 @@ import com.delanhese.cursospring.domain.Cidade;
 import com.delanhese.cursospring.domain.Cliente;
 import com.delanhese.cursospring.domain.Endereco;
 import com.delanhese.cursospring.domain.Estado;
+import com.delanhese.cursospring.domain.ItemPedido;
 import com.delanhese.cursospring.domain.Pagamento;
 import com.delanhese.cursospring.domain.PagamentoComBoleto;
 import com.delanhese.cursospring.domain.PagamentoComCartao;
@@ -25,6 +26,7 @@ import com.delanhese.cursospring.repositories.CidadeRepository;
 import com.delanhese.cursospring.repositories.ClienteRepository;
 import com.delanhese.cursospring.repositories.EnderecoRepository;
 import com.delanhese.cursospring.repositories.EstadoRepository;
+import com.delanhese.cursospring.repositories.ItemPedidoRepository;
 import com.delanhese.cursospring.repositories.PagamentoRepository;
 import com.delanhese.cursospring.repositories.PedidoRepository;
 import com.delanhese.cursospring.repositories.ProdutoRepository;
@@ -40,13 +42,14 @@ public class SpringbootionicApplication implements CommandLineRunner{
 	private EnderecoRepository enderecoRepository;
 	private PedidoRepository pedidoRepository;
 	private PagamentoRepository pagamentoRepository;
-	
+	private ItemPedidoRepository itemPedidoRepository;
 	
 	@Autowired	
 	public SpringbootionicApplication(CategoriaRepository categoriaRepository, ProdutoRepository produtoRepository,
 			EstadoRepository estadoRepository, CidadeRepository cidadeRepository, ClienteRepository clienteRepository,
 			EnderecoRepository enderecoRepository, PedidoRepository pedidoRepository,
-			PagamentoRepository pagamentoRepository) {
+			PagamentoRepository pagamentoRepository,
+			ItemPedidoRepository itemPedidoRepository) {
 		super();
 		this.categoriaRepository = categoriaRepository;
 		this.produtoRepository = produtoRepository;
@@ -56,6 +59,7 @@ public class SpringbootionicApplication implements CommandLineRunner{
 		this.enderecoRepository = enderecoRepository;
 		this.pedidoRepository = pedidoRepository;
 		this.pagamentoRepository = pagamentoRepository;
+		this.itemPedidoRepository = itemPedidoRepository;
 	}
 
 
@@ -122,6 +126,20 @@ public class SpringbootionicApplication implements CommandLineRunner{
 		
 		pedidoRepository.saveAll(Arrays.asList(ped1, ped2));
 		pagamentoRepository.saveAll(Arrays.asList(pgto1, pgto2));
+		
+		ItemPedido ip1 = new ItemPedido(ped1, p1, 0.00, 1, 2000.00);
+		ItemPedido ip2 = new ItemPedido(ped1, p3, 0.00, 2, 80.00);
+		ItemPedido ip3 = new ItemPedido(ped2, p2, 100.00, 1, 800.00);
+		
+		ped1.getItens().addAll(Arrays.asList(ip1, ip2));
+		ped2.getItens().addAll(Arrays.asList(ip3));
+		
+		p1.getItens().addAll(Arrays.asList(ip1));
+		p2.getItens().addAll(Arrays.asList(ip3));
+		p3.getItens().addAll(Arrays.asList(ip2));
+		
+		itemPedidoRepository.saveAll(Arrays.asList(ip1, ip2, ip3));
+		
 	}
 
 }
