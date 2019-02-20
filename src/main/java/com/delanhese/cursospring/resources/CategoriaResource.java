@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -61,6 +63,13 @@ public class CategoriaResource {
 	public ResponseEntity<List<CategoriaDTO>> buscarTodos() {			
 		List<Categoria> listaCategoria = categoriaService.buscarTodos();
 		List<CategoriaDTO> listaCategoriaDTO = listaCategoria.stream().map(obj -> new CategoriaDTO(obj)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(listaCategoriaDTO);		
+	}	
+	
+	@GetMapping("/pagina")
+	public ResponseEntity<Page<CategoriaDTO>> buscarPagina(@RequestParam(value="pagina", defaultValue="0")Integer pagina, @RequestParam(value="linhasPorPagina", defaultValue="24")Integer linhasPorPagina, @RequestParam(value="ordenarPor", defaultValue="nome")String ordenarPor, @RequestParam(value="direcao", defaultValue="ASC")String direcao) {			
+		Page<Categoria> listaCategoria = categoriaService.buscarPagina(pagina, linhasPorPagina, ordenarPor, direcao);
+		Page<CategoriaDTO> listaCategoriaDTO = listaCategoria.map(obj -> new CategoriaDTO(obj));
 		return ResponseEntity.ok().body(listaCategoriaDTO);		
 	}	
 }
