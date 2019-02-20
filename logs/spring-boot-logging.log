@@ -38,3 +38,31 @@
 2019-02-19 21:27:14.163 DEBUG 15024 --- [http-nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
 2019-02-19 21:27:14.164 DEBUG 15024 --- [http-nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.delanhese.cursospring.domain.Categoria@22]
 2019-02-19 21:27:14.166 DEBUG 15024 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-02-19 21:36:42.778 DEBUG 15752 --- [restartedMain] o.s.web.context.ContextLoader            : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2019-02-19 21:36:42.782  INFO 15752 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3610 ms
+2019-02-19 21:36:47.707 DEBUG 15752 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
+2019-02-19 21:36:48.021 DEBUG 15752 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2019-02-19 21:36:48.062  WARN 15752 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-02-19 21:36:48.134 DEBUG 15752 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 7 mappings in 'requestMappingHandlerMapping'
+2019-02-19 21:36:48.162 DEBUG 15752 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2019-02-19 21:36:48.196 DEBUG 15752 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2019-02-19 21:37:10.207  INFO 15752 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-02-19 21:37:10.208 DEBUG 15752 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2019-02-19 21:37:10.225 DEBUG 15752 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2019-02-19 21:37:10.225  INFO 15752 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 17 ms
+2019-02-19 21:37:10.241 DEBUG 15752 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/categorias/1", parameters={}
+2019-02-19 21:37:10.255 DEBUG 15752 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public org.springframework.http.ResponseEntity<com.delanhese.cursospring.domain.Categoria> com.delanhese.cursospring.resources.CategoriaResource.find(java.lang.Integer)
+2019-02-19 21:37:10.436 DEBUG 15752 --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-02-19 21:37:10.437 DEBUG 15752 --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.delanhese.cursospring.domain.Categoria@20]
+2019-02-19 21:37:10.519 DEBUG 15752 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-02-19 21:37:47.308 DEBUG 15752 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : PUT "/categorias/1", parameters={}
+2019-02-19 21:37:47.311 DEBUG 15752 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public org.springframework.http.ResponseEntity<java.lang.Void> com.delanhese.cursospring.resources.CategoriaResource.atualizar(com.delanhese.cursospring.domain.Categoria,java.lang.Integer)
+2019-02-19 21:37:47.406 DEBUG 15752 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.delanhese.cursospring.domain.Categoria@1f]
+2019-02-19 21:37:47.473 DEBUG 15752 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-02-19 21:37:47.474 DEBUG 15752 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Nothing to write: null body
+2019-02-19 21:37:47.476 DEBUG 15752 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 204 NO_CONTENT
+2019-02-19 21:37:56.104 DEBUG 15752 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/categorias/1", parameters={}
+2019-02-19 21:37:56.106 DEBUG 15752 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public org.springframework.http.ResponseEntity<com.delanhese.cursospring.domain.Categoria> com.delanhese.cursospring.resources.CategoriaResource.find(java.lang.Integer)
+2019-02-19 21:37:56.108 DEBUG 15752 --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-02-19 21:37:56.109 DEBUG 15752 --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.delanhese.cursospring.domain.Categoria@20]
+2019-02-19 21:37:56.114 DEBUG 15752 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
