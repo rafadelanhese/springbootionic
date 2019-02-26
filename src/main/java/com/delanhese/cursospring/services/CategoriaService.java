@@ -11,6 +11,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.delanhese.cursospring.domain.Categoria;
+import com.delanhese.cursospring.domain.Cliente;
 import com.delanhese.cursospring.dto.CategoriaDTO;
 import com.delanhese.cursospring.repositories.CategoriaRepository;
 import com.delanhese.cursospring.services.exceptions.DataIntegrityException;
@@ -35,8 +36,9 @@ public class CategoriaService {
 	}
 	
 	public Categoria atualizar(Categoria categoria) {		
-		buscar(categoria.getId());
-		return categoriaRepository.save(categoria);
+		Categoria newCategoria = buscar(categoria.getId());
+		updateDate(newCategoria, categoria);
+		return categoriaRepository.save(newCategoria);
 	}
 	
 	public void excluir(Integer id) {
@@ -59,5 +61,9 @@ public class CategoriaService {
 	
 	public Categoria fromDTO(CategoriaDTO categoriaDTO) {
 		return new Categoria(categoriaDTO.getId(), categoriaDTO.getNome());
+	}
+	
+	private void updateDate(Categoria newCategoria, Categoria categoria ) {		
+		newCategoria.setNome(categoria.getNome());
 	}
 }
