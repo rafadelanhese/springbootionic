@@ -11,7 +11,6 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.delanhese.cursospring.domain.Categoria;
-import com.delanhese.cursospring.domain.Cliente;
 import com.delanhese.cursospring.dto.CategoriaDTO;
 import com.delanhese.cursospring.repositories.CategoriaRepository;
 import com.delanhese.cursospring.services.exceptions.DataIntegrityException;

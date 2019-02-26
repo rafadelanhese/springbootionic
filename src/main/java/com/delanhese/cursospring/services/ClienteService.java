@@ -10,9 +10,15 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
+import com.delanhese.cursospring.domain.Cidade;
 import com.delanhese.cursospring.domain.Cliente;
+import com.delanhese.cursospring.domain.Endereco;
+import com.delanhese.cursospring.domain.enums.TipoCliente;
 import com.delanhese.cursospring.dto.ClienteDTO;
+import com.delanhese.cursospring.dto.ClienteNewDTO;
+import com.delanhese.cursospring.repositories.CidadeRepository;
 import com.delanhese.cursospring.repositories.ClienteRepository;
+import com.delanhese.cursospring.repositories.EnderecoRepository;
 import com.delanhese.cursospring.services.exceptions.DataIntegrityException;
 import com.delanhese.cursospring.services.exceptions.ObjectNotFoundException;
 
@@ -22,6 +28,12 @@ public class ClienteService {
 	@Autowired
 	private ClienteRepository clienteRepository;
 	
+	@Autowired
+	private CidadeRepository cidadeRepository;
+	
+	@Autowired
+	private EnderecoRepository enderecoRepository;
+	
 	public Cliente buscar(Integer id) {
 		Optional<Cliente> cliente = clienteRepository.findById(id);		
 		return cliente.orElseThrow(() -> new ObjectNotFoundException(
@@ -30,7 +42,9 @@ public class ClienteService {
 	
 	public Cliente salvar(Cliente cliente) {
 		cliente.setId(null);
-		return clienteRepository.save(cliente);
+		cliente = clienteRepository.save(cliente);
+		enderecoRepository.saveAll(cliente.getEnderecos());
+		return cliente;
 	}
 	
 	public Cliente atualizar(Cliente cliente) {		
@@ -59,6 +73,22 @@ public class ClienteService {
 	
 	public Cliente fromDTO(ClienteDTO clienteDTO) {
 		return new Cliente(clienteDTO.getId(), clienteDTO.getNome(), clienteDTO.getEmail(), null, null);
+	}
+	
+	public Cliente fromDTO(ClienteNewDTO clienteNewDTO) {
+		Cliente cliente = new Cliente(null,clienteNewDTO.getNome(), clienteNewDTO.getEmail(), clienteNewDTO.getCpfOuCnpj(), TipoCliente.toEnum(clienteNewDTO.getTipoCliente()));
+		Optional<Cidade> cidade = cidadeRepository.findById(clienteNewDTO.getIdCidade());
+		Endereco endereco = new Endereco(null, clienteNewDTO.getLogradouro(), clienteNewDTO.getNumero(), clienteNewDTO.getComplemento(), clienteNewDTO.getBairro(), clienteNewDTO.getCep(), cliente, cidade.get());
+		cliente.getEnderecos().add(endereco);
+		cliente.getTelefones().add(clienteNewDTO.getTelefone1());
+		
+		if(clienteNewDTO.getTelefone2() != null)
+			cliente.getTelefones().add(clienteNewDTO.getTelefone2());
+		
+		if(clienteNewDTO.getTelefone3() != null)
+			cliente.getTelefones().add(clienteNewDTO.getTelefone3());
+		
+		return cliente;
 	}
 	
 	private void updateDate(Cliente newCliente, Cliente cliente) {
